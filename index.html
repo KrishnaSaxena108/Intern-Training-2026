@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Support Desk</p>
+        <h1>Ticket Management</h1>
+        <p class="subtitle">Track, create, update, and remove tickets from one minimal workspace.</p>
+      </div>
+      <button id="newTicketButton" class="primary-button">New Ticket</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel table-panel">
+        <div class="panel-header">
+          <h2>Tickets</h2>
+          <p id="ticketCount">0 tickets</p>
+        </div>
+        <div class="table-wrap">
+          <table class="ticket-table">
+            <thead>
+              <tr>
+                <th>Ticket ID</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Assignee</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ticketTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <aside class="panel detail-panel">
+        <div class="panel-header">
+          <h2>Ticket Details</h2>
+          <p>Structured view</p>
+        </div>
+        <div id="ticketDetails" class="details-empty">
+          Select a ticket to view its details.
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div id="ticketModal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <p class="eyebrow" id="formModeLabel">Create Ticket</p>
+          <h2 id="formTitle">New Ticket</h2>
+        </div>
+        <button id="closeModalButton" class="icon-button" aria-label="Close form">×</button>
+      </div>
+
+      <form id="ticketForm" novalidate>
+        <input type="hidden" id="ticketId" />
+
+        <div class="form-grid">
+          <label>
+            Subject
+            <input id="subject" type="text" placeholder="Short summary" />
+            <span class="error" data-error-for="subject"></span>
+          </label>
+
+          <label>
+            Status
+            <select id="status">
+              <option value="Open">Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+              <option value="Closed">Closed</option>
+            </select>
+            <span class="error" data-error-for="status"></span>
+          </label>
+
+          <label>
+            Priority
+            <select id="priority">
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Critical">Critical</option>
+            </select>
+            <span class="error" data-error-for="priority"></span>
+          </label>
+
+          <label>
+            Assignee
+            <input id="assignee" type="text" placeholder="Person or team" />
+            <span class="error" data-error-for="assignee"></span>
+          </label>
+
+          <label class="full-width">
+            Description
+            <textarea id="description" rows="4" placeholder="Ticket notes, context, and next steps"></textarea>
+            <span class="error" data-error-for="description"></span>
+          </label>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelButton" class="secondary-button">Cancel</button>
+          <button type="submit" class="primary-button" id="submitButton">Save Ticket</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
