@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  color: #111;
+}
+
+/* NAVBAR */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0f172a;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* PAGE WRAPPER */
+.container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 250px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #16a34a;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+/* BUTTONS */
+button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-edit {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  margin-left: 8px;
+}
+
+.btn-primary {
+  background: #0f172a;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* FORM */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  max-width: 450px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* SKELETON */
+.skeleton {
+  background: #e5e7eb;
+  border-radius: 10px;
+  height: 200px;
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
